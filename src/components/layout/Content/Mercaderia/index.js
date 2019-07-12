@@ -1,25 +1,14 @@
-import React, { Component } from 'react'
-import  {DataTable} from './data-table';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class Content extends Component {
+
+export default class Mercaderia extends Component {
+    
     render() {
         return (
             <div>
-                {/* Content Wrapper. Contains page content */}
-                <div className="content-wrapper">
-                    {/* Content Header (Page header) */}
-                    <section className="content-header">
-                        <h1>
-                            Módulo de compras <small>Mercaderías</small>
-                        </h1>
-                        <ol className="breadcrumb">
-                            <li><a href="#"><i className="fa fa-dashboard" /> Inicio</a></li>
-                            <li><a href="#">Compras</a></li>
-                            <li className="active">Mercaderías</li>
-                        </ol>
-                    </section>
-                    {/* Main content */}
-                    <section className="content">
+                {/* Main content */}
+                <section className="content">
                         <div className="row">
                             <div className="col-xs-12">
                                 <div className="box">
@@ -468,14 +457,7 @@ export default class Content extends Component {
                         {/* /.row */}
                     </section>
                     {/* /.content */}
-                </div>
-                {/* /.content-wrapper */}
-                {/* page script */}
-                <script>
-                    DataTable.dataTable();
-                </script>
             </div>
-
         )
     }
 }
