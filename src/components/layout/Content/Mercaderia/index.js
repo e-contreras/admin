@@ -24,428 +24,120 @@ export default class Mercaderia extends Component {
                                                     <th>Nombre</th>
                                                     <th>Categoría</th>
                                                     <th>Marca</th>
-                                                    <th>Cantidad</th>
-                                                    <th>Precio de compra</th>
+                                                    <th>Articulo</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>001</td>
-                                                    <td>Internet
-                                                      Explorer 4.0
-                    </td>
-                                                    <td>Win 95+</td>
-                                                    <td> 4</td>
-                                                    <td>X</td>
+                                                    <td>35003</td>
+                                                    <td>Caloventilador Cecotec rw9700</td>
+                                                    <td>Electrodméstico</td>
+                                                    <td>Cecotec </td>
+                                                    <td>Estufa</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Trident</td>
-                                                    <td>Internet
-                                                      Explorer 5.0
-                    </td>
-                                                    <td>Win 95+</td>
-                                                    <td>5</td>
-                                                    <td>C</td>
+                                                    <td>34046</td>
+                                                    <td>Smart TV UHD 4K Samsung 65” 65NU7100</td>
+                                                    <td>Televisores</td>
+                                                    <td>Samsung</td>
+                                                    <td>Televiso</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Trident</td>
-                                                    <td>Internet
-                                                      Explorer 5.5
-                    </td>
-                                                    <td>Win 95+</td>
-                                                    <td>5.5</td>
-                                                    <td>A</td>
+                                                    <td>34631</td>
+                                                    <td>Robot Aspirador Conga 950</td>
+                                                    <td>Cocina y Hogar</td>
+                                                    <td>Conga</td>
+                                                    <td>Aspirador</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Trident</td>
-                                                    <td>Internet
-                                                      Explorer 6
-                    </td>
-                                                    <td>Win 98+</td>
-                                                    <td>6</td>
-                                                    <td>A</td>
+                                                    <td>30656</td>
+                                                    <td>Cafetera Oster® para Espresso y Capuccino TEM4188-053</td>
+                                                    <td>Cocina y Hogar</td>
+                                                    <td>Oster</td>
+                                                    <td>Cafetera</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Trident</td>
-                                                    <td>Internet Explorer 7</td>
-                                                    <td>Win XP SP2+</td>
-                                                    <td>7</td>
-                                                    <td>A</td>
+                                                    <td>26689</td>
+                                                    <td>Bebedero Tokyo TOKBE801</td>
+                                                    <td>Cocina y Hogar</td>
+                                                    <td>Tokyo</td>
+                                                    <td>Bebedero</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Trident</td>
-                                                    <td>AOL browser (AOL desktop)</td>
-                                                    <td>Win XP</td>
-                                                    <td>6</td>
-                                                    <td>A</td>
+                                                    <td>29399</td>
+                                                    <td>Afeitadora Philips HQ6904</td>
+                                                    <td>Philips</td>
+                                                    <td>Cuidado Masculino</td>
+                                                    <td>Afeitadora</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Firefox 1.0</td>
-                                                    <td>Win 98+ / OSX.2+</td>
-                                                    <td>1.7</td>
-                                                    <td>A</td>
+                                                    <td>29628</td>
+                                                    <td>Celular Samsung J1 Ace</td>
+                                                    <td>Samsung</td>
+                                                    <td>Celulares</td>
+                                                    <td>Celular</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Firefox 1.5</td>
-                                                    <td>Win 98+ / OSX.2+</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
+                                                    <td>32829</td>
+                                                    <td>Celular Huawei P10</td>
+                                                    <td>Huawei</td>
+                                                    <td>Celulares</td>
+                                                    <td>Celular</td>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>  
+                                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Firefox 2.0</td>
-                                                    <td>Win 98+ / OSX.2+</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
+                                                    <td>40050</td>
+                                                    <td>Lavarropas Whirlpool WLF600B25F</td>
+                                                    <td>Whirlpool</td>
+                                                    <td>Lavarropas</td>
+                                                    <td>Lavarropa</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Firefox 3.0</td>
-                                                    <td>Win 2k+ / OSX.3+</td>
-                                                    <td>1.9</td>
-                                                    <td>A</td>
+                                                    <td>32043</td>
+                                                    <td>Licuadora Oster® Xpert Series™ Con Vaso de Vidrio Boroclass®
+</td>
+                                                    <td>Oster®</td>
+                                                    <td>Cocina y Hogar</td>
+                                                    <td>Licuadora</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Camino 1.0</td>
-                                                    <td>OSX.2+</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
+                                                    <td>34631</td>
+                                                    <td>Robot Aspirador Conga 950</td>
+                                                    <td>Cocina y Hogar</td>
+                                                    <td>Conga</td>
+                                                    <td>Aspirador</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Camino 1.5</td>
-                                                    <td>OSX.3+</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
+                                                    <td>30656</td>
+                                                    <td>Cafetera Oster® para Espresso y Capuccino TEM4188-053</td>
+                                                    <td>Cocina y Hogar</td>
+                                                    <td>Oster</td>
+                                                    <td>Cafetera</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Netscape 7.2</td>
-                                                    <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                                    <td>1.7</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Netscape Browser 8</td>
-                                                    <td>Win 98SE+</td>
-                                                    <td>1.7</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Netscape Navigator 9</td>
-                                                    <td>Win 98+ / OSX.2+</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.0</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>1</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.1</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>1.1</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.2</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>1.2</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.3</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>1.3</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.4</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>1.4</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.5</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>1.5</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.6</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>1.6</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.7</td>
-                                                    <td>Win 98+ / OSX.1+</td>
-                                                    <td>1.7</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Mozilla 1.8</td>
-                                                    <td>Win 98+ / OSX.1+</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Seamonkey 1.1</td>
-                                                    <td>Win 98+ / OSX.2+</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gecko</td>
-                                                    <td>Epiphany 2.20</td>
-                                                    <td>Gnome</td>
-                                                    <td>1.8</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Webkit</td>
-                                                    <td>Safari 1.2</td>
-                                                    <td>OSX.3</td>
-                                                    <td>125.5</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Webkit</td>
-                                                    <td>Safari 1.3</td>
-                                                    <td>OSX.3</td>
-                                                    <td>312.8</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Webkit</td>
-                                                    <td>Safari 2.0</td>
-                                                    <td>OSX.4+</td>
-                                                    <td>419.3</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Webkit</td>
-                                                    <td>Safari 3.0</td>
-                                                    <td>OSX.4+</td>
-                                                    <td>522.1</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Webkit</td>
-                                                    <td>OmniWeb 5.5</td>
-                                                    <td>OSX.4+</td>
-                                                    <td>420</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Webkit</td>
-                                                    <td>iPod Touch / iPhone</td>
-                                                    <td>iPod</td>
-                                                    <td>420.1</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Webkit</td>
-                                                    <td>S60</td>
-                                                    <td>S60</td>
-                                                    <td>413</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera 7.0</td>
-                                                    <td>Win 95+ / OSX.1+</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera 7.5</td>
-                                                    <td>Win 95+ / OSX.2+</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera 8.0</td>
-                                                    <td>Win 95+ / OSX.2+</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera 8.5</td>
-                                                    <td>Win 95+ / OSX.2+</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera 9.0</td>
-                                                    <td>Win 95+ / OSX.3+</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera 9.2</td>
-                                                    <td>Win 88+ / OSX.3+</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera 9.5</td>
-                                                    <td>Win 88+ / OSX.3+</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Opera for Wii</td>
-                                                    <td>Wii</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Nokia N800</td>
-                                                    <td>N800</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Presto</td>
-                                                    <td>Nintendo DS browser</td>
-                                                    <td>Nintendo DS</td>
-                                                    <td>8.5</td>
-                                                    <td>C/A<sup>1</sup></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>KHTML</td>
-                                                    <td>Konqureror 3.1</td>
-                                                    <td>KDE 3.1</td>
-                                                    <td>3.1</td>
-                                                    <td>C</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>KHTML</td>
-                                                    <td>Konqureror 3.3</td>
-                                                    <td>KDE 3.3</td>
-                                                    <td>3.3</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>KHTML</td>
-                                                    <td>Konqureror 3.5</td>
-                                                    <td>KDE 3.5</td>
-                                                    <td>3.5</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tasman</td>
-                                                    <td>Internet Explorer 4.5</td>
-                                                    <td>Mac OS 8-9</td>
-                                                    <td>-</td>
-                                                    <td>X</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tasman</td>
-                                                    <td>Internet Explorer 5.1</td>
-                                                    <td>Mac OS 7.6-9</td>
-                                                    <td>1</td>
-                                                    <td>C</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tasman</td>
-                                                    <td>Internet Explorer 5.2</td>
-                                                    <td>Mac OS 8-X</td>
-                                                    <td>1</td>
-                                                    <td>C</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc</td>
-                                                    <td>NetFront 3.1</td>
-                                                    <td>Embedded devices</td>
-                                                    <td>-</td>
-                                                    <td>C</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc</td>
-                                                    <td>NetFront 3.4</td>
-                                                    <td>Embedded devices</td>
-                                                    <td>-</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc</td>
-                                                    <td>Dillo 0.8</td>
-                                                    <td>Embedded devices</td>
-                                                    <td>-</td>
-                                                    <td>X</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc</td>
-                                                    <td>Links</td>
-                                                    <td>Text only</td>
-                                                    <td>-</td>
-                                                    <td>X</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc</td>
-                                                    <td>Lynx</td>
-                                                    <td>Text only</td>
-                                                    <td>-</td>
-                                                    <td>X</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc</td>
-                                                    <td>IE Mobile</td>
-                                                    <td>Windows Mobile 6</td>
-                                                    <td>-</td>
-                                                    <td>C</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Misc</td>
-                                                    <td>PSP browser</td>
-                                                    <td>PSP</td>
-                                                    <td>-</td>
-                                                    <td>C</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Other browsers</td>
-                                                    <td>All others</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>U</td>
+                                                    <td>26689</td>
+                                                    <td>Bebedero Tokyo TOKBE801</td>
+                                                    <td>Cocina y Hogar</td>
+                                                    <td>Tokyo</td>
+                                                    <td>Bebedero</td>
+                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                             </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Rendering engine</th>
-                                                    <th>Browser</th>
-                                                    <th>Platform(s)</th>
-                                                    <th>Engine version</th>
-                                                    <th>CSS grade</th>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                     {/* /.box-body */}
