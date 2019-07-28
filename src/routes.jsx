@@ -7,6 +7,10 @@ import Cotizacion from './components/layout/Content/Cotizacion';
 import AddCotizacion from './components/layout/Content/Cotizacion/Add';
 import Proveedor from './components/layout/Content/Proveedor';
 import AddProveedor from './components/layout/Content/Proveedor/Add';
+import RemissionNote from './components/layout/Content/RemissionNote';
+import AddRemissionNote from './components/layout/Content/RemissionNote/Add';
+import CreditNote from './components/layout/Content/CreditNote';
+import AddCreditNote from './components/layout/Content/CreditNote/Add';
 
 const AppRoutes = () => (
   <App>
@@ -18,6 +22,11 @@ const AppRoutes = () => (
         <Route path="/proveedores/add" exact component={AddProveedor} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/cotizaciones" exact component={Cotizacion} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/cotizaciones/add" exact component={AddCotizacion} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
+        <Route path="/com-not-remision" exact component={RemissionNote} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
+        <Route path="/com-not-remision/add" exact component={AddRemissionNote} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
+        <Route path="/com-not-credito" exact component={CreditNote} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
+        <Route path="/com-not-credito/add" exact component={AddCreditNote} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
+        
     </Switch>
   </App>
 );
