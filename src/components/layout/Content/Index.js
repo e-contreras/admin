@@ -11,12 +11,12 @@ export default class Content extends Component {
     };
 
     render() {
-        
-        const { 
+
+        const {
             children,
             module,
             section
-         } = this.props;
+        } = this.props;
 
 
         return (
@@ -29,11 +29,11 @@ export default class Content extends Component {
                             {module} <small>{section}</small>
                         </h1>
                         <ol className="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
                             {this.createBreadcrumb()}
                         </ol>
                     </section>
-                    { children }
+                    {children}
                 </div>
                 {/* /.content-wrapper */}
                 {/* page script */}
@@ -46,14 +46,15 @@ export default class Content extends Component {
 
         let ulist = [];
         let bre = this.props.breadcrumb;
-        let breLength = bre.length -1;
-        
+        if (bre) {
+            let breLength = bre.length > 0 ? bre.length - 1 : 0;
 
-        for (let index = 0; index < breLength ; index++) {
-            ulist.push(<li><a href="#">{bre[index]}</a></li>);
+            for (let index = 0; index < breLength; index++) {
+                ulist.push(<li><a href="#">{bre[index]}</a></li>);
+            }
+
+            ulist.push(<li className="active">{bre[breLength]}</li>);
         }
-        
-        ulist.push(<li className="active">{bre[breLength]}</li>);
 
         return ulist;
     }

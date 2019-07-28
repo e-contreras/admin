@@ -6,7 +6,7 @@ export default class Header extends Component {
       <div>
         <header className="main-header">
           {/* Logo */}
-          <a href="index2.html" className="logo">
+          <a href="/" className="logo">
             {/* mini logo for sidebar mini 50x50 pixels */}
             <span className="logo-mini"><b>E</b>CO</span>
             {/* logo for regular state and mobile devices */}
@@ -31,13 +31,13 @@ export default class Header extends Component {
                 {/* User Account: style can be found in dropdown.less */}
                 <li className="dropdown user user-menu">
                   <a href="fake_url" className="dropdown-toggle" data-toggle="dropdown">
-                    <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User" />
+                    <img src="/dist/img/user2-160x160.jpg" className="user-image" alt="User" />
                     <span className="hidden-xs">Alexander Pierce</span>
                   </a>
                   <ul className="dropdown-menu">
                     {/* User image */}
                     <li className="user-header">
-                      <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
+                      <img src="/dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
                       <p>
                         Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>

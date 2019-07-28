@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 
 export default class Mercaderia extends Component {
+
+    constructor(props){
+        super(props);
+        this.handleAddMercaderia = this.handleAddMercaderia.bind(this);
+    }
+    
+    handleAddMercaderia = () =>{
+        this.props.history.push('/mercaderias/add');
+    }
     
     render() {
         return (
@@ -14,6 +22,10 @@ export default class Mercaderia extends Component {
                                 <div className="box">
                                     <div className="box-header">
                                         <h3 className="box-title">List de mercaderías</h3>
+                                        <div style={{float: "right"}}>
+                                                <button className="btn btn-primary" onClick={this.handleAddMercaderia}>
+                                                    <i className="fa fa-plus"></i> Nuevo</button>
+                                        </div>
                                     </div>
                                     {/* /.box-header */}
                                     <div className="box-body">
@@ -35,7 +47,7 @@ export default class Mercaderia extends Component {
                                                     <td>Electrodméstico</td>
                                                     <td>Cecotec </td>
                                                     <td>Estufa</td>
-                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
+                                                    <td><button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>34046</td>
@@ -43,7 +55,7 @@ export default class Mercaderia extends Component {
                                                     <td>Televisores</td>
                                                     <td>Samsung</td>
                                                     <td>Televiso</td>
-                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
+                                                    <td><button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>34631</td>
@@ -51,7 +63,7 @@ export default class Mercaderia extends Component {
                                                     <td>Cocina y Hogar</td>
                                                     <td>Conga</td>
                                                     <td>Aspirador</td>
-                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
+                                                    <td><button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>30656</td>
@@ -59,7 +71,7 @@ export default class Mercaderia extends Component {
                                                     <td>Cocina y Hogar</td>
                                                     <td>Oster</td>
                                                     <td>Cafetera</td>
-                                                    <td>                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
+                                                    <td><button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>26689</td>
