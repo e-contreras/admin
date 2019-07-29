@@ -21,7 +21,7 @@ export default class DebitNote
                             <div className="col-xs-12">
                                 <div className="box">
                                     <div className="box-header">
-                                        <h3 className="box-title">Notas de créditos emitidas por proveedores</h3>
+                                        <h3 className="box-title">Notas de débitos emitidas por proveedores</h3>
                                         <div style={{float: "right"}}>
                                                 <button className="btn btn-primary" onClick={this.handleAdd}>
                                                     <i className="fa fa-plus"></i> Nuevo</button>
@@ -85,7 +85,7 @@ export default class DebitNote
                                                     <td>654</td>
                                                     <td>7 ENLACES SOCIEDAD ANONIMA</td>
                                                     <td>80046213-0</td>
-                                                    <td>Remitir nota de débito por faltante de mercaderías</td>
+                                                    <td>Por faltante de mercaderías</td>
                                                     <td>12/10/20018 08:59</td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
@@ -95,7 +95,7 @@ export default class DebitNote
                                                     <td>321</td>
                                                     <td>3 V - INGENIERIA S.A.</td>
                                                     <td>80019709-7</td>
-                                                    <td>Remitir nota de débito por faltante de mercaderías</td>
+                                                    <td>Por descuentos aplicados posteriores a la facturación</td>
                                                     <td>12/10/20018 08:59</td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
@@ -105,7 +105,7 @@ export default class DebitNote
                                                     <td>369</td>
                                                     <td>7 FALLS TRADING S.R.L.</td>
                                                     <td>80047655-7</td>
-                                                    <td>Remitir nota de débito por faltante de mercaderías</td>
+                                                    <td>Por descuentos aplicados posteriores a la facturación</td>
                                                     <td>12/10/20018 08:59</td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>                                                           <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>

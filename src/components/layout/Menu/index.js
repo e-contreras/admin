@@ -33,7 +33,7 @@ export default class Menu extends Component {
                   <li id="menu-cotizaciones"><a href="/cotizaciones"><i className="fa fa-circle-o" />Cotizaciones</a></li>
                   <li id="menu-comp_nota_remision"><a href="/com-not-remision"><i className="fa fa-circle-o" />Notas de remisión</a></li>
                   <li id="menu-comp_not_credito"><a href="/com-not-credito"><i className="fa fa-circle-o" />Notas de crédito</a></li>
-                  <li id="menu-comp_not_debito"><a href="/comp_not_debito"><i className="fa fa-circle-o" />Notas de débito</a></li>
+                  <li id="menu-comp_not_debito"><a href="/com-not-debito"><i className="fa fa-circle-o" />Notas de débito</a></li>
                 </ul>
               </li>
               <li className="treeview">

@@ -1,6 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './mercaderia.js';
 
 export default class Add extends Component {
+
+    constructor(props){
+        super(props);
+        this.handleInputCheckChange = this.handleInputCheckChange.bind(this);
+    }
+
+    handleInputCheckChange(event){
+        const target = event.target;
+        const checked = target.checked;
+        let id = target.id;
+        id = id.replace("chk","");
+        let inputTarget = document.getElementById(id);
+        if(checked){
+            inputTarget.removeAttribute("disabled");
+        }else{
+            inputTarget.setAttribute("disabled", true);
+        }
+    }
+
     render() {
         return (
             <div>
@@ -27,6 +47,47 @@ export default class Add extends Component {
                                             <label htmlFor="modelo">Modelo</label>
                                             <input type="text" className="form-control" id="modelo" placeholder="XD618" />
                                         </div>
+
+                                        <div className="form-group">
+                                            <label htmlFor="atributos">Atributos</label>
+                                            <div className="form-group">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Elegir</th>
+                                                            <th>Atributo</th>
+                                                            <th>Valor</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td scope="row">
+                                                                <input type="checkbox" id="chkpeso" onChange={this.handleInputCheckChange} />
+                                                            </td>
+                                                            <td>
+                                                                Peso
+                                                            </td>
+                                                            <td>
+                                                                  <input type="text" className="form-control" name="peso" id="peso" disabled />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td scope="row">
+                                                                <input type="checkbox" id="chkvolumen" onChange={this.handleInputCheckChange} />
+                                                            </td>
+                                                            <td>
+                                                                volumen
+                                                            </td>
+                                                            <td>
+                                                                  <input type="text" className="form-control" name="volumen" id="volumen" disabled/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
                                         <div className="form-group">
                                             <label htmlFor="marca">Marca</label>
                                             <select className="form-control" id="marca">
