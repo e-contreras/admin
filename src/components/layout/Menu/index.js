@@ -10,10 +10,10 @@ export default class Menu extends Component {
             {/* Sidebar user panel */}
             <div className="user-panel">
               <div className="pull-left image">
-                <img src="/dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
+                <img src="/dist/img/user.png" className="img-circle" alt="User" />
               </div>
               <div className="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>Jhon Doe</p>
                 <a href="fake_url"><i className="fa fa-circle text-success" /> Online</a>
               </div>
             </div>
@@ -34,6 +34,7 @@ export default class Menu extends Component {
                   <li id="menu-comp_nota_remision"><a href="/com-not-remision"><i className="fa fa-circle-o" />Notas de remisión</a></li>
                   <li id="menu-comp_not_credito"><a href="/com-not-credito"><i className="fa fa-circle-o" />Notas de crédito</a></li>
                   <li id="menu-comp_not_debito"><a href="/com-not-debito"><i className="fa fa-circle-o" />Notas de débito</a></li>
+                  <li id="menu-comp_gen_lib"><a href="/com-gen-lib-compras"><i className="fa fa-circle-o" />Generar Libro de compras</a></li>
                 </ul>
               </li>
               <li className="treeview">
@@ -44,8 +45,10 @@ export default class Menu extends Component {
                   </span>
                 </a>
                 <ul className="treeview-menu">
-                  <li><a href="index.html"><i className="fa fa-circle-o" /> Dashboard v1</a></li>
-                  <li className="active"><a href="index2.html"><i className="fa fa-circle-o" /> Dashboard v2</a></li>
+                  <li><a href="/ven-pedidos"><i className="fa fa-circle-o" />Pedidos</a></li>
+                  <li><a href="/ven-not-credito"><i className="fa fa-circle-o" />Nota de crédito</a></li>
+                  <li><a href="/ven-not-debito"><i className="fa fa-circle-o" />Nota de débito</a></li>
+                  <li><a href="/ven-gen-lib-ventas"><i className="fa fa-circle-o" />Libro de ventas</a></li>
                 </ul>
               </li>
               <li className="treeview">
@@ -56,7 +59,7 @@ export default class Menu extends Component {
                   </span>
                 </a>
                 <ul className="treeview-menu">
-                  <li><a href="index.html"><i className="fa fa-circle-o" /> Dashboard v1</a></li>
+                  <li><a href="/log-orden-trabajo"><i className="fa fa-circle-o" />Asignar OT</a></li>
                   <li className="active"><a href="index2.html"><i className="fa fa-circle-o" /> Dashboard v2</a></li>
                 </ul>
               </li>
