@@ -14,7 +14,7 @@ export default class Add extends Component {
                             <div className="box box-primary">
                                 {/* /.box-header */}
                                 {/* form start */}
-                                <form role="form">
+                                <form>
                                     <div className="box-body">
 
                                         {/* Datos del proveedor */}

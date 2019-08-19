@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class WorkOrder
+export default class WorkOrderList
  extends Component {
     
     constructor(props){
@@ -21,7 +21,7 @@ export default class WorkOrder
                             <div className="col-xs-12">
                                 <div className="box">
                                     <div className="box-header">
-                                        <h3 className="box-title">Asignar Empaque</h3>
+                                        <h3 className="box-title">Generar Nota de remisión</h3>
                                     </div>
                                     {/* /.box-header */}
                                     <div className="box-body">
@@ -33,7 +33,8 @@ export default class WorkOrder
                                                     <th>RUC</th>
                                                     <th>Fecha de pedido</th>
                                                     <th>Fecha entrega pautada</th>
-                                                    <th>Empaquetador</th>
+                                                    <th>Chofer</th>
+                                                    <th>Mobil</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
@@ -45,8 +46,10 @@ export default class WorkOrder
                                                     <td>12/10/20018 08:59</td>
                                                     <td>12/10/20018 08:59</td>
                                                     <td>Alfred Pennynworth</td>
+                                                    <td>Batimovil 1</td>
                                                     <td>
-                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>&nbsp;
+                                                        <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -55,6 +58,7 @@ export default class WorkOrder
                                                     <td>80075055-1</td>
                                                     <td>001-001-0000001</td>
                                                     <td>12/10/20018 08:59</td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>
@@ -67,8 +71,10 @@ export default class WorkOrder
                                                     <td>001-001-0000032</td>
                                                     <td>12/10/20018 08:59</td>
                                                     <td>James Gordon</td>
+                                                    <td>Batimovil 3</td>
                                                     <td>
-                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                                                        <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>&nbsp;
+                                                        <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -77,6 +83,7 @@ export default class WorkOrder
                                                     <td>80029482-3</td>
                                                     <td>001-001-0000099</td>
                                                     <td>12/10/20018 08:59</td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>
@@ -89,6 +96,7 @@ export default class WorkOrder
                                                     <td>001-001-0000022</td>
                                                     <td>12/10/20018 08:59</td>
                                                     <td></td>
+                                                    <td></td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                                                     </td>
@@ -100,6 +108,7 @@ export default class WorkOrder
                                                     <td>001-001-0000080</td>
                                                     <td>12/10/20018 08:59</td>
                                                     <td></td>
+                                                    <td></td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                                                     </td>
@@ -110,6 +119,7 @@ export default class WorkOrder
                                                     <td>80047655-7</td>
                                                     <td>001-001-0000001</td>
                                                     <td>12/10/20018 08:59</td>
+                                                    <td></td>
                                                     <td></td>
                                                     <td>
                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i></button>

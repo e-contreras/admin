@@ -33,7 +33,7 @@ export default class Add extends Component {
                             <div className="box box-primary">
                                 {/* /.box-header */}
                                 {/* form start */}
-                                <form role="form">
+                                <form>
                                     <div className="box-body">
                                         <div className="form-group">
                                             <label htmlFor="codigo">Código</label>
@@ -61,7 +61,7 @@ export default class Add extends Component {
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td scope="row">
+                                                            <td>
                                                                 <input type="checkbox" id="chkpeso" onChange={this.handleInputCheckChange} />
                                                             </td>
                                                             <td>
@@ -72,7 +72,7 @@ export default class Add extends Component {
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                        <td scope="row">
+                                                        <td>
                                                                 <input type="checkbox" id="chkvolumen" onChange={this.handleInputCheckChange} />
                                                             </td>
                                                             <td>
@@ -124,7 +124,7 @@ export default class Add extends Component {
                         </div>
                         <div className="col-md-5 box-body">
                             <div className="box">
-                                <img className="img-responsive pad" src="../../dist/img/photo2.png" alt="Photo" />
+                                <img className="img-responsive pad" src="../../dist/img/photo2.png" alt="Product images" />
                             </div>
                         </div>
                     </div></section>

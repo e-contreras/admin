@@ -10,7 +10,7 @@ export default class Menu extends Component {
             {/* Sidebar user panel */}
             <div className="user-panel">
               <div className="pull-left image">
-                <img src="/dist/img/user.png" className="img-circle" alt="User" />
+                <img src="/dist/img/user.png" className="img-circle" alt="user"/>
               </div>
               <div className="pull-left info">
                 <p>Jhon Doe</p>
@@ -59,10 +59,65 @@ export default class Menu extends Component {
                   </span>
                 </a>
                 <ul className="treeview-menu">
-                  <li><a href="/log-orden-trabajo"><i className="fa fa-circle-o" />Asignar OT</a></li>
-                  <li className="active"><a href="index2.html"><i className="fa fa-circle-o" /> Dashboard v2</a></li>
+                  <li><a href="/log-empaquetar"><i className="fa fa-circle-o" />Asignar empaque</a></li>
+                  <li><a href="/log-transporte"><i className="fa fa-circle-o" />Asignar Transporte</a></li>
+                  <li><a href="/log-list-not-remision/list"><i className="fa fa-circle-o" />Generar Not. remisión</a></li>
+                  <li><a href="index2.html"><i className="fa fa-circle-o" />Registrar eventos de OT</a></li>
                 </ul>
               </li>
+              <li className="treeview">
+                <a href="fake_url">
+                <i className="fa fa-briefcase"></i> <span>Seguridad y acceso</span>
+                  <span className="pull-right-container">
+                    <i className="fa fa-angle-left pull-right" />
+                  </span>
+                </a>
+                <ul className="treeview-menu">
+                  <li><a href="fake_url"><i className="fa fa-circle-o" />Usuarios</a></li>
+                  <li><a href="fake_url"><i className="fa fa-circle-o" />Roles</a></li>
+                  <li><a href="index2.html"><i className="fa fa-circle-o" />Pantallas</a></li>
+                </ul>
+              </li>
+              <li className="treeview">
+                <a href="fake_url">
+                <i className="fa fa-gear"></i> <span>Mantenimiento</span>
+                  <span className="pull-right-container">
+                    <i className="fa fa-angle-left pull-right" />
+                  </span>
+                </a>
+                <ul className="treeview-menu">
+                  <li><a href="fake_url">
+                    <i className="fa fa-circle-o" />Genearl</a>
+                    <ul>
+                      <li><a href="fake_url">Departamentos</a></li>
+                      <li><a href="fake_url">Ciudades</a></li>
+                      <li><a href="index2.html">Barrios</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="fake_url">
+                    <i className="fa fa-circle-o" />Compras</a>
+                    <ul>
+                      <li><a href="fake_url">Atributos</a></li>
+                      <li><a href="fake_url">Categorías</a></li>
+                      <li><a href="index2.html">Mercaderíás</a></li>
+                      <li><a href="fake_url">Estados</a></li>
+                      <li><a href="index2.html">Marcas</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="fake_url">
+                    <i className="fa fa-circle-o" />Ventas</a>
+                    <ul>
+                      <li><a href="fake_url">Marcas Tarjetas</a></li>
+                      <li><a href="fake_url">Emisor de la tarjeta</a></li>
+                      <li><a href="fake_url">Medios de pago</a></li>
+                      <li><a href="index2.html">Entidad financiera</a></li>
+                      <li><a href="fake_url">Estados</a></li>
+                      <li><a href="index2.html">Timbrados</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
             </ul>
           </section>
           {/* /.sidebar */}

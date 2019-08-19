@@ -23,6 +23,12 @@ import Pedidos from './components/layout/Content/Ventas/Pedido';
 import SaleBook from './components/layout/Content/Ventas/SaleBook';
 import ApproveRequest from './components/layout/Content/Ventas/Pedido/Approve';
 import WorkOrder from './components/layout/Content/Logistica/WorkOrder';
+import WorkOrderList from './components/layout/Content/Logistica/WorkOrder/List';
+import PackageWorkOrder from './components/layout/Content/Logistica/WorkOrder/Package';
+import TransportWorkOrder from './components/layout/Content/Logistica/WorkOrder/transport'
+import TransportListWorkOrder from './components/layout/Content/Logistica/WorkOrder/transport/List';
+import Undelibered from './components/layout/Content/Logistica/WorkOrder/Undelibered';
+import Departament from './components/layout/Content/Maintainace/General/Departament';
 
 const AppRoutes = () => (
   <App>
@@ -30,10 +36,10 @@ const AppRoutes = () => (
         <Route path="/" exact component={Mercaderia} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/mercaderias" exact component={Mercaderia} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/mercaderias/add" exact component={Add} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
-        <Route path="/proveedores" exact component={Proveedor} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
+        <Route path="/proveedores" exact component={Proveedor} breadcrumb={['Compras', 'Proveedores']} section={'Proveedores'} module={'Módulo de compras'} />
         <Route path="/proveedores/add" exact component={AddProveedor} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
-        <Route path="/cotizaciones" exact component={Cotizacion} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
-        <Route path="/cotizaciones/add" exact component={AddCotizacion} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
+        <Route path="/cotizaciones" exact component={Cotizacion} breadcrumb={['Compras', 'Cotizaciones']} section={'Cotizaciones'} module={'Módulo de compras'} />
+        <Route path="/cotizaciones/add" exact component={AddCotizacion} breadcrumb={['Compras', 'Cotizaciones']} section={'Cotizaciones'} module={'Módulo de compras'} />
         <Route path="/cotizaciones/proveedor" exact component={CotizacionProveedor} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/com-not-remision" exact component={RemissionNote} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/com-not-remision/add" exact component={AddRemissionNote} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
@@ -49,7 +55,14 @@ const AppRoutes = () => (
         <Route path="/ven-not-credito" exact component={CreditNoteSale} breadcrumb={['Ventas', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/ven-not-credito/add" exact component={AddCreditNoteSale} breadcrumb={['Ventas', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/ven-gen-lib-ventas" exact component={SaleBook} breadcrumb={['Ventas', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
-        <Route path="/log-orden-trabajo" exact component={WorkOrder}  />
+        <Route path="/log-empaquetar/list" exact component={WorkOrder}  />
+        <Route path="/log-not-remision/list" exact component={WorkOrderList}  />
+        <Route path="/log-empaquetar" exact component={PackageWorkOrder}  />
+        <Route path="/log-transporte" exact component={TransportWorkOrder}  />
+        <Route path="/log-transporte/list" exact component={TransportListWorkOrder}  />
+        <Route path="/log-list-not-remision/list" exact component={WorkOrderList}  />
+        <Route path="/log-undeliberd" exact component={Undelibered}  />
+        <Route path="/general/departaments" exact component={Departament}  />
 
     </Switch>
   </App>

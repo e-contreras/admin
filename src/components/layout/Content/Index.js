@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 
 export default class Content extends Component {
 
+    state = {
+        breadcrumb : [],
+        module: '',
+        section: '',
+    }
+    
     static propTypes = {
         children: PropTypes.element.isRequired,
         module: PropTypes.string.isRequired,
@@ -10,14 +16,18 @@ export default class Content extends Component {
         breadcrumb: PropTypes.array.isRequired
     };
 
-    render() {
+    componentDidMount(){
+        this.initSectionAndBreadcrum();
+    }
 
+    componentDidUpdate(){
+        
+    }
+
+    render() {
         const {
             children,
-            module,
-            section
         } = this.props;
-
 
         return (
             <div>
@@ -26,11 +36,11 @@ export default class Content extends Component {
                     {/* Content Header (Page header) */}
                     <section className="content-header">
                         <h1>
-                            {module} <small>{section}</small>
+                            {this.state.module} <small>{this.state.section}</small>
                         </h1>
                         <ol className="breadcrumb">
                             <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-                            {this.createBreadcrumb()}
+                            {this.state.breadcrumb}
                         </ol>
                     </section>
                     {children}
@@ -42,15 +52,32 @@ export default class Content extends Component {
         )
     }
 
-    createBreadcrumb = () => {
+    initSectionAndBreadcrum = () => {
+        let currentLocation = window.location;
+        let childrens = this.props.children.props.children;
+        for (let index = 0; index < childrens.length; index++) {
+            const element = childrens[index];
+            if(element.props.path.includes(currentLocation.pathname)){
+                this.setState({
+                    breadcrumb:this.buildBreadCumb(element),
+                    section: element.section,
+                    module: element.module,
+                });
+            }
+        }
+    }
 
+
+
+    buildBreadCumb(subChild) {
+    
         let ulist = [];
-        let bre = this.props.breadcrumb;
+        let bre = subChild.props.breadcrumb;
         if (bre) {
             let breLength = bre.length > 0 ? bre.length - 1 : 0;
 
             for (let index = 0; index < breLength; index++) {
-                ulist.push(<li><a href="#">{bre[index]}</a></li>);
+                ulist.push(<li><a href="fake_url">{bre[index]}</a></li>);
             }
 
             ulist.push(<li className="active">{bre[breLength]}</li>);

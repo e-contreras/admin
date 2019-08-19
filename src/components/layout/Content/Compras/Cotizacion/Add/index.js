@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 export default class Add extends Component {
 
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount(){
         document.getElementById("menu-cotizaciones").classList.add("active");
         document.getElementById("mod-compras").style.display ="block !important";
@@ -25,7 +21,7 @@ export default class Add extends Component {
                                 </div>
                                 {/* /.box-header */}
                                 {/* form start */}
-                                <form role="form">
+                                <form>
                                     <div className="row">
                                         <div className="col-md-6">
                                             <div className="box-body">
