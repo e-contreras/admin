@@ -29,10 +29,12 @@ import TransportWorkOrder from './components/layout/Content/Logistica/WorkOrder/
 import TransportListWorkOrder from './components/layout/Content/Logistica/WorkOrder/transport/List';
 import Undelibered from './components/layout/Content/Logistica/WorkOrder/Undelibered';
 import Departament from './components/layout/Content/Maintainace/General/Departament';
+import Login from './components/Login';
 
 const AppRoutes = () => (
   <App>
     <Switch>
+        <Route path="/login" exact component={Login} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/" exact component={Mercaderia} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/mercaderias" exact component={Mercaderia} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
         <Route path="/mercaderias/add" exact component={Add} breadcrumb={['Compras', 'Mercaderías']} section={'Mercaderías'} module={'Módulo de compras'} />
