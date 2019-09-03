@@ -4,9 +4,10 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './routes';
+import history from './core/history';
 
 ReactDOM.render(
-    <Router>
+    <Router history={history}>
         <AppRoutes />
     </Router>
     , document.getElementById('root'));

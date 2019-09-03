@@ -3,6 +3,7 @@ import {
     segundosTimeoutPeticionesAjax
 } from './opcionesApp';
 import $ from 'jquery';
+import getOwnerCredentials from '../core/authentication';
 
 const uriProyectosXRecurso = "/recurso/proyecto/";
 const uriTareasXProyectosXRecurso = "/recurso/tarea/";
@@ -76,7 +77,7 @@ export function getTareasSemanales(recursoCod, setState) {
     });
 }
 
-export function login(nombre_usuario, contrasenha, cookie) {
+export async function login(nombre_usuario, contrasenha, cookie) {
     var usuario = validarCredenciales(nombre_usuario, contrasenha);
     if (usuario === undefined) {
         return false;
@@ -190,11 +191,8 @@ var usuarios = [{
     }
 ];
 
-function validarCredenciales(nombre_usuario, contrasenha) {
-    for (var i = 0; i < usuarios.length; i++) {
-        if (usuarios[i].username.toLowerCase() === nombre_usuario.toLowerCase() && usuarios[i].password === contrasenha) {
-            return usuarios[i];
-        }
-    }
-    return undefined;
+async function validarCredenciales(nombre_usuario, contrasenha) {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    return getOwnerCredentials(nombre_usuario, contrasenha);
 }
+

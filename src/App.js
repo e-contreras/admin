@@ -10,7 +10,8 @@ export default class App extends Component {
 
   render() {
     const { children } = this.props;
-    const isLoggedIn = false;
+    var token = JSON.parse(localStorage.getItem("token"));
+    var isLoggedIn = (token != undefined && token.expires_in != undefined && token.expires_in > 0) ? true : false;
 
     return (
       <div>

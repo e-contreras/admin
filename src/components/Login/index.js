@@ -4,17 +4,18 @@ import {
     Form,
     FormControl,
     FormGroup,
-    Col,
-    FormLabel
+    Col
 } from 'react-bootstrap';
 import Notifications, { notify } from 'react-notify-toast';
 import cookie from 'react-cookies';
-import { login } from '../../core/funcionesServerRequest';
 import './login.css';
+import history from '../../core/history';
+import getOwnerCredentials from '../../core/authentication';
+import {Redirect} from 'react-router-dom';
 
 export default class Login extends Component {
 
-    constructor(props, context) {
+    constructor(props) {
         super(props);
         this.state = {
             nombre_usuario: "",
@@ -23,15 +24,15 @@ export default class Login extends Component {
     }
 
     componentWillMount() {
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
         var userEnSesion = cookie.load('userEnSesion');
         if (userEnSesion !== undefined) {
-            this.props.history.push('/');
+            history.push('/');
         }
     }
 
+
     render() {
-
-
         return (
 
             <div className="login-box">
@@ -43,36 +44,35 @@ export default class Login extends Component {
                     <Notifications />
                     <Form>
                         <FormGroup controlId="formUsername">
-                            <Col className="form-group has-feedback" componentClass={FormLabel}>
+                            <Col className="form-group has-feedback">
                                 <FormControl
                                     type="text" placeholder="Usuario"
                                     value={this.state.nombre_usuario}
                                     onChange={this.changeNombre.bind(this)} />
-                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
                             </Col>
                         </FormGroup>
 
                         <FormGroup controlId="formPassword">
-                            <Col className="form-group has-feedback" componentClass={FormLabel}>
+                            <Col className="form-group has-feedback">
                                 <FormControl className="form-control" type="password" placeholder="Contraseña" value={this.state.contrasenha}
                                     onChange={this.changeContrasenha.bind(this)} />
-                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                <span className="glyphicon glyphicon-lock form-control-feedback"></span>
                             </Col>
                         </FormGroup>
 
                         <FormGroup className="row">
                             <div className="col-xs-12">
-                                <div class="checkbox icheck">
+                                <div className="checkbox icheck">
                                 </div>
-                                <Col componentClass={FormLabel} className="col-xs-4">
+                                <Col className="col-xs-4">
                                     <Button className="btn btn-primary btn-block btn-flat" type="submit" onClick={this.handleLogin.bind(this)}>Ingresar</Button>
                                 </Col>
-                                <Col componentClass={FormLabel}>
-                                    <a link="#">Recupera tu contraseña</a>
+                                <Col>
+                                    <a href="/">Recupera tu contraseña</a>
                                 </Col>
                             </div>
                         </FormGroup>
-
 
                     </Form>
                 </div>
@@ -93,12 +93,16 @@ export default class Login extends Component {
     }
 
     handleLogin(e) {
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
         e.preventDefault();
-        var res = login(this.state.nombre_usuario, this.state.contrasenha, cookie);
-        if (!res) {
+        getOwnerCredentials(this.state.nombre_usuario, this.state.contrasenha);
+        let token = localStorage.getItem("token");
+        if (!token || token.expires_in <= 0) {
             notify.show("Credenciales inválidas", "error");
             return;
         }
-        this.props.history.push("/home");
+        return <Redirect to="/mercaderias" />
+        //history.push("/mercaderias");
+
     }
 }
