@@ -7,11 +7,8 @@ import {
     Col
 } from 'react-bootstrap';
 import Notifications, { notify } from 'react-notify-toast';
-import cookie from 'react-cookies';
 import './login.css';
-import history from '../../core/history';
-import getOwnerCredentials from '../../core/authentication';
-import {Redirect} from 'react-router-dom';
+import { getOwnerCredentials } from '../../core/authentication';
 
 export default class Login extends Component {
 
@@ -25,12 +22,7 @@ export default class Login extends Component {
 
     componentWillMount() {
         process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-        var userEnSesion = cookie.load('userEnSesion');
-        if (userEnSesion !== undefined) {
-            history.push('/');
-        }
     }
-
 
     render() {
         return (
@@ -100,9 +92,8 @@ export default class Login extends Component {
         if (!token || token.expires_in <= 0) {
             notify.show("Credenciales inválidas", "error");
             return;
+        }else{
+            window.location.reload();
         }
-        return <Redirect to="/mercaderias" />
-        //history.push("/mercaderias");
-
     }
 }

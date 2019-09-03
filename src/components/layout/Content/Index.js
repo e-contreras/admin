@@ -10,14 +10,14 @@ export default class Content extends Component {
     }
     
     static propTypes = {
-        children: PropTypes.element.isRequired,
-        module: PropTypes.string.isRequired,
-        section: PropTypes.string.isRequired,
-        breadcrumb: PropTypes.array.isRequired
+        children: PropTypes.element.isRequired
+        // module: PropTypes.string.isRequired,
+        // section: PropTypes.string.isRequired,
+        // breadcrumb: PropTypes.array.isRequired
     };
 
     componentDidMount(){
-        this.initSectionAndBreadcrum();
+        //this.initSectionAndBreadcrum();
     }
 
     componentDidUpdate(){
@@ -52,38 +52,38 @@ export default class Content extends Component {
         )
     }
 
-    initSectionAndBreadcrum = () => {
-        let currentLocation = window.location;
-        let childrens = this.props.children.props.children;
-        for (let index = 0; index < childrens.length; index++) {
-            const element = childrens[index];
-            if(element.props.path.includes(currentLocation.pathname)){
-                this.setState({
-                    breadcrumb:this.buildBreadCumb(element),
-                    section: element.section,
-                    module: element.module,
-                });
-            }
-        }
-    }
+    // initSectionAndBreadcrum = () => {
+    //     let currentLocation = window.location;
+    //     let childrens = this.props.children.props.children;
+    //     for (let index = 0; index < childrens.length; index++) {
+    //         const element = childrens[index];
+    //         if(element.props.path.includes(currentLocation.pathname)){
+    //             this.setState({
+    //                 breadcrumb:this.buildBreadCumb(element),
+    //                 section: element.section,
+    //                 module: element.module,
+    //             });
+    //         }
+    //     }
+    //}
 
 
 
-    buildBreadCumb(subChild) {
+    // buildBreadCumb(subChild) {
     
-        let ulist = [];
-        let bre = subChild.props.breadcrumb;
-        if (bre) {
-            let breLength = bre.length > 0 ? bre.length - 1 : 0;
+    //     let ulist = [];
+    //     let bre = subChild.props.breadcrumb;
+    //     if (bre) {
+    //         let breLength = bre.length > 0 ? bre.length - 1 : 0;
 
-            for (let index = 0; index < breLength; index++) {
-                ulist.push(<li><a href="fake_url">{bre[index]}</a></li>);
-            }
+    //         for (let index = 0; index < breLength; index++) {
+    //             ulist.push(<li><a href="fake_url">{bre[index]}</a></li>);
+    //         }
 
-            ulist.push(<li className="active">{bre[breLength]}</li>);
-        }
+    //         ulist.push(<li className="active">{bre[breLength]}</li>);
+    //     }
 
-        return ulist;
-    }
+    //     return ulist;
+    // }
 
 }

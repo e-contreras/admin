@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import revokeToken from '../../../core/authentication';
 
 export default class Header extends Component {
+  
   render() {
     return (
       <div>
@@ -49,7 +51,7 @@ export default class Header extends Component {
                         <a href="fake_url" className="btn btn-default btn-flat">Perfil</a>
                       </div>
                       <div className="pull-right">
-                        <a href="fake_url" className="btn btn-default btn-flat">Salir</a>
+                        <a href="/" onClick={this.logout} className="btn btn-default btn-flat">Salir</a>
                       </div>
                     </li>
                   </ul>
@@ -60,5 +62,11 @@ export default class Header extends Component {
         </header>
       </div>
     )
+  }
+
+  logout(e) {
+    e.preventDefault();
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    revokeToken.revokeToken()
   }
 }
