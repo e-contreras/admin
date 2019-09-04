@@ -39,7 +39,7 @@ export default class Content extends Component {
                             {this.state.module} <small>{this.state.section}</small>
                         </h1>
                         <ol className="breadcrumb">
-                            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+                            <li><a href="/"><i className="fa fa-dashboard"></i> Home</a></li>
                             {this.state.breadcrumb}
                         </ol>
                     </section>

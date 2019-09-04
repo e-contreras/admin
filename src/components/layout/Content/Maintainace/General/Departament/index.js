@@ -1,26 +1,63 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import DepartamentDataTable from './DepartamentDataTable';
 
 export default class Departament extends Component {
 
     state = {
-        departaments: []
+        departaments: [],
+        data: {}
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:8080/departaments')
-            .then(res =>{
-                const departaments = res.data;
-                this.setState({departaments});
-            });
-    }
-
+    
     render() {
         return (
             <div>
-                <ul>
-                    {this.state.departaments.map(departament => <li>{departament.departament_name}</li>)}
-                </ul>
+                <div>
+                    {/* Main content */}
+                    <section className="content">
+                        <div className="row">
+                            <div className="col-xs-12">
+                                <div className="box">
+                                    <div className="box-header">
+                                        <h3 className="box-title">Departamentos</h3>
+                                    </div>
+                                    {/* /.box-header */}
+                                    <div className="box-body">
+                                        <DepartamentDataTable  />
+
+
+                                        {/* <table id="example1" className="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Departmento</th>
+                                                    <th>Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {this.state.departaments.map(departament =>
+                                                    <tr>
+                                                        <td>
+                                                            {departament.department_name}
+                                                        </td>
+                                                        <td>
+
+                                                        </td>
+                                                    </tr>
+                                                )}
+
+                                            </tbody>
+                                        </table> */}
+                                    </div>
+                                    {/* /.box-body */}
+                                </div>
+                                {/* /.box */}
+                            </div>
+                            {/* /.col */}
+                        </div>
+                        {/* /.row */}
+                    </section>
+                    {/* /.content */}
+                </div>
             </div>
         )
     }
