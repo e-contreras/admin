@@ -3,12 +3,6 @@ import DepartamentDataTable from './DepartamentDataTable';
 
 export default class Departament extends Component {
 
-    state = {
-        departaments: [],
-        data: {}
-    }
-
-    
     render() {
         return (
             <div>
@@ -24,29 +18,6 @@ export default class Departament extends Component {
                                     {/* /.box-header */}
                                     <div className="box-body">
                                         <DepartamentDataTable  />
-
-
-                                        {/* <table id="example1" className="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Departmento</th>
-                                                    <th>Acción</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {this.state.departaments.map(departament =>
-                                                    <tr>
-                                                        <td>
-                                                            {departament.department_name}
-                                                        </td>
-                                                        <td>
-
-                                                        </td>
-                                                    </tr>
-                                                )}
-
-                                            </tbody>
-                                        </table> */}
                                     </div>
                                     {/* /.box-body */}
                                 </div>

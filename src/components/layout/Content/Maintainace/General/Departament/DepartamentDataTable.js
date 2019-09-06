@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { MDBDataTable, MDBBtn } from 'mdbreact';
+import { MDBDataTable } from 'mdbreact';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import DepartamentPopup from './DepartamentPopup';
 
 export default class DepartamentDataTable extends Component {
 
@@ -9,8 +11,16 @@ export default class DepartamentDataTable extends Component {
         this.state = {
             data: {
                 columns: [],
-                rows: []
-            }
+                rows: [],
+                row_selected: {
+                    id: 0,
+                    department_name: ''
+                }
+            },
+            show: false,
+            tets: 1,
+            id: 0,
+            department_name: ''
         }
     }
 
@@ -26,14 +36,14 @@ export default class DepartamentDataTable extends Component {
             console.log(e);
         });
 
-        
+
         let jsondata = [];
         departaments.forEach(department => {
-            let dept = { 
+            let dept = {
                 'id': department.id,
                 'department_name': department.department_name,
-                 'last': <div><MDBBtn color="default" rounded size="sm">Editar</MDBBtn> <MDBBtn color="default" rounded size="sm">Borrar</MDBBtn></div>
-             }
+                'last': <Button variant="primary" id={department.id} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
+            }
             jsondata.push(dept);
         });
         let columns = [
@@ -60,16 +70,45 @@ export default class DepartamentDataTable extends Component {
         let data = {};
         data.rows = jsondata;
         data.columns = columns;
-        this.setState({ data });
+        this.setState({ data: data });
+    }
+
+    handleShowPopup(event) {
+        event.preventDefault();
+        let id = parseInt(event.target.id);
+        let data = this.state.data;
+        let selected_row = {};
+        data.rows.forEach((row) => {
+            if (row.id === id) {
+                selected_row = row;
+            }
+        });
+        data.row_selected = selected_row;
+        data.id = selected_row.id;
+        data.department_name = selected_row.department_name;
+        this.setState({ data: data, show: true });
+    }
+
+    handleHiddenPopup(e) {
+
+        this.setState({ show: !this.state.show });
     }
 
     render() {
         return (
-            <MDBDataTable 
-                striped 
-                bordered 
-                hover 
-                data={this.state.data} />
+            <div>
+                <MDBDataTable
+                    striped
+                    bordered
+                    hover
+                    data={this.state.data} />
+                <DepartamentPopup 
+                    setShow={this.state.show} 
+                    showPopupFunction={this.handleHiddenPopup.bind(this)} 
+                    department_name={this.state.data.department_name}
+                    department_id={this.state.data.id}
+                    />
+            </div>
         );
     }
 }
