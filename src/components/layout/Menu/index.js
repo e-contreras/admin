@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Menu extends Component {
   render() {
@@ -10,7 +11,7 @@ export default class Menu extends Component {
             {/* Sidebar user panel */}
             <div className="user-panel">
               <div className="pull-left image">
-                <img src="/dist/img/user.png" className="img-circle" alt="user"/>
+                <img src="/dist/img/user.png" className="img-circle" alt="user" />
               </div>
               <div className="pull-left info">
                 <p>Jhon Doe</p>
@@ -53,7 +54,7 @@ export default class Menu extends Component {
               </li>
               <li className="treeview">
                 <a href="fake_url">
-                <i className="fa fa-truck"></i> <span>Lógistica</span>
+                  <i className="fa fa-truck"></i> <span>Lógistica</span>
                   <span className="pull-right-container">
                     <i className="fa fa-angle-left pull-right" />
                   </span>
@@ -67,7 +68,7 @@ export default class Menu extends Component {
               </li>
               <li className="treeview">
                 <a href="fake_url">
-                <i className="fa fa-briefcase"></i> <span>Seguridad y acceso</span>
+                  <i className="fa fa-briefcase"></i> <span>Seguridad y acceso</span>
                   <span className="pull-right-container">
                     <i className="fa fa-angle-left pull-right" />
                   </span>
@@ -80,7 +81,7 @@ export default class Menu extends Component {
               </li>
               <li className="treeview">
                 <a href="fake_url">
-                <i className="fa fa-gear"></i> <span>Mantenimiento</span>
+                  <i className="fa fa-gear"></i> <span>Mantenimiento</span>
                   <span className="pull-right-container">
                     <i className="fa fa-angle-left pull-right" />
                   </span>
@@ -89,8 +90,12 @@ export default class Menu extends Component {
                   <li><a href="fake_url">
                     <i className="fa fa-circle-o" />Genearl</a>
                     <ul>
-                      <li><a href="fake_url">Departamentos</a></li>
-                      <li><a href="fake_url">Ciudades</a></li>
+                      <li>
+                        <Link to="/general/departaments">Departamentos</Link>
+                      </li>
+                      <li>
+                        <Link to="/general/cities">Ciudades</Link>
+                      </li>
                       <li><a href="index2.html">Barrios</a></li>
                     </ul>
                   </li>

@@ -1,34 +1,35 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import App from './App';
-import Mercaderia from './components/layout/Content/Compras/Mercaderia';
-import Add from './components/layout/Content/Compras/Mercaderia/Add';
 import Cotizacion from './components/layout/Content/Compras/Cotizacion';
 import AddCotizacion from './components/layout/Content/Compras/Cotizacion/Add';
 import CotizacionProveedor from './components/layout/Content/Compras/Cotizacion/Proveedor';
-import Proveedor from './components/layout/Content/Compras/Proveedor';
-import AddProveedor from './components/layout/Content/Compras/Proveedor/Add';
-import RemissionNote from './components/layout/Content/Compras/RemissionNote';
-import AddRemissionNote from './components/layout/Content/Compras/RemissionNote/Add';
 import CreditNote from './components/layout/Content/Compras/CreditNote';
 import AddCreditNote from './components/layout/Content/Compras/CreditNote/Add';
 import DebitNote from './components/layout/Content/Compras/DebitNote';
 import AddDebitNote from './components/layout/Content/Compras/DebitNote/Add';
+import Mercaderia from './components/layout/Content/Compras/Mercaderia';
+import Add from './components/layout/Content/Compras/Mercaderia/Add';
+import Proveedor from './components/layout/Content/Compras/Proveedor';
+import AddProveedor from './components/layout/Content/Compras/Proveedor/Add';
 import PurchasesBook from './components/layout/Content/Compras/PurchasesBook';
+import RemissionNote from './components/layout/Content/Compras/RemissionNote';
+import AddRemissionNote from './components/layout/Content/Compras/RemissionNote/Add';
+import WorkOrder from './components/layout/Content/Logistica/WorkOrder';
+import WorkOrderList from './components/layout/Content/Logistica/WorkOrder/List';
+import PackageWorkOrder from './components/layout/Content/Logistica/WorkOrder/Package';
+import TransportWorkOrder from './components/layout/Content/Logistica/WorkOrder/transport';
+import TransportListWorkOrder from './components/layout/Content/Logistica/WorkOrder/transport/List';
+import Undelibered from './components/layout/Content/Logistica/WorkOrder/Undelibered';
+import City from './components/layout/Content/Maintainace/General/City';
+import Departament from './components/layout/Content/Maintainace/General/Departament';
 import CreditNoteSale from './components/layout/Content/Ventas/CreditNote';
 import AddCreditNoteSale from './components/layout/Content/Ventas/CreditNote/Add';
 import DebitNoteSale from './components/layout/Content/Ventas/DebitNote';
 import AddDebitNoteSale from './components/layout/Content/Ventas/DebitNote/Add';
 import Pedidos from './components/layout/Content/Ventas/Pedido';
-import SaleBook from './components/layout/Content/Ventas/SaleBook';
 import ApproveRequest from './components/layout/Content/Ventas/Pedido/Approve';
-import WorkOrder from './components/layout/Content/Logistica/WorkOrder';
-import WorkOrderList from './components/layout/Content/Logistica/WorkOrder/List';
-import PackageWorkOrder from './components/layout/Content/Logistica/WorkOrder/Package';
-import TransportWorkOrder from './components/layout/Content/Logistica/WorkOrder/transport'
-import TransportListWorkOrder from './components/layout/Content/Logistica/WorkOrder/transport/List';
-import Undelibered from './components/layout/Content/Logistica/WorkOrder/Undelibered';
-import Departament from './components/layout/Content/Maintainace/General/Departament';
+import SaleBook from './components/layout/Content/Ventas/SaleBook';
 import Login from './components/Login';
 
 const AppRoutes = () => (
@@ -65,6 +66,7 @@ const AppRoutes = () => (
         <Route path="/log-list-not-remision/list" exact component={WorkOrderList}  />
         <Route path="/log-undeliberd" exact component={Undelibered}  />
         <Route path="/general/departaments" exact component={Departament}  />
+        <Route path="/general/cities" exact component={City}  />
 
     </Switch>
   </App>
