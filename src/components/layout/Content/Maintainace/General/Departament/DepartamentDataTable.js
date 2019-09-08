@@ -3,25 +3,32 @@ import { MDBDataTable } from 'mdbreact';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import DepartamentPopup from './DepartamentPopup';
+import {baseURLServer} from '../../../../../../core/opcionesApp';
+
+const initialState = {
+    data: {
+        columns: [],
+        rows: [],
+        row_selected: {
+            id: 0,
+            department_name: ''
+        }
+    },
+    show: false,
+    id: 0,
+    department_name: '',
+    error_msg: []
+};
 
 export default class DepartamentDataTable extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            data: {
-                columns: [],
-                rows: [],
-                row_selected: {
-                    id: 0,
-                    department_name: ''
-                }
-            },
-            show: false,
-            tets: 1,
-            id: 0,
-            department_name: ''
-        }
+        this.state = initialState;
+    }
+
+    callbackFunction(error_msg) {
+        this.setState({ error_msg: error_msg });
     }
 
     componentWillMount() {
@@ -30,7 +37,7 @@ export default class DepartamentDataTable extends Component {
 
     async getData() {
         let departaments = [];
-        await axios.get('http://localhost:8080/departments').then(resp => {
+        await axios.get(baseURLServer+'/departments').then(resp => {
             departaments = resp.data;
         }).catch(e => {
             console.log(e);
@@ -42,7 +49,7 @@ export default class DepartamentDataTable extends Component {
             let dept = {
                 'id': department.id,
                 'department_name': department.department_name,
-                'last': <Button variant="primary" id={department.id} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
+                'last': <Button type="button" variant="primary" id={department.id} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
             }
             jsondata.push(dept);
         });
@@ -90,24 +97,36 @@ export default class DepartamentDataTable extends Component {
     }
 
     handleHiddenPopup(e) {
-
         this.setState({ show: !this.state.show });
+    }
+
+    handlerNewPopu(e){
+        this.handleShowPopup(e);
+        this.setState({
+            department_id : undefined,
+            department_name: undefined
+        });
     }
 
     render() {
         return (
             <div>
+                <div style={{ float: "right", with: '100%' }}>
+                    <Button type="button" className="btn btn-primary" onClick={this.handlerNewPopu.bind(this)}>Nuevo</Button>
+                </div>
                 <MDBDataTable
                     striped
                     bordered
                     hover
                     data={this.state.data} />
-                <DepartamentPopup 
-                    setShow={this.state.show} 
-                    showPopupFunction={this.handleHiddenPopup.bind(this)} 
+                <DepartamentPopup
+                    setShow={this.state.show}
+                    showPopupFunction={this.handleHiddenPopup.bind(this)}
                     department_name={this.state.data.department_name}
                     department_id={this.state.data.id}
-                    />
+                    parentCallback={this.callbackFunction.bind(this)}
+                />
+                <div style={{ display: (this.state.error_msg.length > 0 ? 'block' : 'none') }}>errrror</div>
             </div>
         );
     }

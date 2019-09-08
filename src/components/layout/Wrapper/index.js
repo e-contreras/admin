@@ -23,7 +23,7 @@ export default class Wrapper extends Component {
         const { children } = this.props;
         return (
             <div>
-                {this.state.isLoggedIn ? (
+                {/* {this.state.isLoggedIn ? ( */}
                     <div>
                         <Header />
                         <Menu />
@@ -32,9 +32,9 @@ export default class Wrapper extends Component {
                         </Content>
                         <Footer />
                     </div>
-                ) : (
-                        <Login />
-                    )}
+                {/* ) : ( */}
+                        {/* <Login /> */}
+                    {/* )} */}
             </div>
         )
     }

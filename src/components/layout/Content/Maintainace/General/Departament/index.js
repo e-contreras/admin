@@ -1,7 +1,30 @@
 import React, { Component } from 'react';
 import DepartamentDataTable from './DepartamentDataTable';
 
+const initialState = {
+    show: false
+};
+
 export default class Departament extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = initialState;
+        this.handleHiddenPopup = this.handleHiddenPopup.bind(this);
+    }
+
+    handlerNewPopu(e) {
+        e.preventDefault();
+        this.setState({ show: true });
+    }
+
+    handleHiddenPopup(e) {
+        this.setState({ show: !this.state.show });
+    }
+
+    cleanPopup(){
+        this.setState(initialState);
+    }
 
     render() {
         return (
@@ -17,7 +40,7 @@ export default class Departament extends Component {
                                     </div>
                                     {/* /.box-header */}
                                     <div className="box-body">
-                                        <DepartamentDataTable  />
+                                        <DepartamentDataTable />
                                     </div>
                                     {/* /.box-body */}
                                 </div>
