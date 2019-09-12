@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { MDBDataTable } from 'mdbreact';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import CityPopup from './CityPopup';
+import NeighbourhoodPopup from './NeighbourhoodPopup';
 import { baseURLServer } from '../../../../../../core/opcionesApp';
 
 const initialState = {
@@ -11,20 +11,20 @@ const initialState = {
         rows: [],
         row_selected: {
             id: undefined,
-            city_name: undefined,
-            depatament_id: undefined
+            neighbourhood_name: undefined,
+            city_name: undefined
         }
     },
-    departamentList: [],
+    neighbourhoodtList: [],
     cities: [],
+    neighbourhoodSelect: [],
     show: false,
     id: undefined,
     city_name: undefined,
-    error_msg: [],
-    departmentSelect: []
+    error_msg: []
 };
 
-export default class CityDataTable extends Component {
+export default class NeighbourhoodDataTable extends Component {
 
     constructor(props) {
         super(props);
@@ -37,6 +37,7 @@ export default class CityDataTable extends Component {
 
     componentWillMount() {
         this.getDepartments();
+        this.getCities();
         this.getData();
     }
 
@@ -48,66 +49,82 @@ export default class CityDataTable extends Component {
         });
     }
 
-    async getData() {
-
+    
+    async getCities(){
         await axios.get(baseURLServer+'/cities').then(resp => {
             this.setState({ cities: resp.data });
         }).catch(e => {
             console.log(e);
         });
+    }
 
-        let jsondata = [];
+    async getData() {
+        await axios.get(baseURLServer+'/neighborhoods').then(resp => {
+            this.setState({ neighbourhoodtList: resp.data });
+        }).catch(e => {
+            console.log(e);
+        });
+        let citiesJson = [];
+        let neighbourhoodsJson = [];
         this.state.cities.forEach(c => {
             let depId = this.getLastResourceByHref(c.links.find(l => l.rel === 'department').href);
             let dep = this.state.departamentList.find(d => d.id === parseInt(depId));
             let ci = {
                 'id': c.id,
                 'city_name': c.city_name,
-                'department_name': dep.department_name,
-                'last': <Button type="button" variant="primary" id={c.id} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
+                'department_name': dep.department_name
             }
-            jsondata.push(ci);
+            citiesJson.push(ci);
         });
 
-        let depSele = [];
-        
-        this.state.departamentList.forEach(d => {
-            depSele.push({
-                label: d.department_name,
-                value: d.depatament_id
-            })
+        this.state.neighbourhoodtList.forEach(n =>{
+            let cid = this.getLastResourceByHref(n.links.find(l => l.rel === 'city').href);
+            let c = citiesJson.find(c => c.id === parseInt(cid));
+            let nei = {
+                id: n.id,
+                neighbourhood_name: n.description,
+                city_name: c.city_name,
+                department_name: c.department_name,
+                'last': <Button type="button" variant="primary" id={n.id} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
+            }
+            neighbourhoodsJson.push(nei);
         });
-
-        this.setState({departmentSelect: depSele});
 
         let columns = [
             {
                 label: 'ID',
                 field: 'id',
                 sort: 'asc',
-                width: '10%'
+                width: 60
+            },
+            {
+                label: 'Barrio',
+                field: 'neighbourhood_name',
+                sort: 'asc',
+                width: 500
             },
             {
                 label: 'CIUDAD',
                 field: 'city_name',
                 sort: 'asc',
-                width: '40%'
+                width: 500
             },
             {
                 label: 'DEPARTAMENTO',
                 field: 'department_name',
                 sort: 'asc',
-                width: '40%'
+                width: 500
             },
             {
                 label: 'Acciones',
                 field: 'actions',
-                width: '10%'
+                sort: 'asc',
+                width: 100
             },
         ];
 
         let data = {};
-        data.rows = jsondata;
+        data.rows = neighbourhoodsJson;
         data.columns = columns;
         this.setState({ data: data });
     }
@@ -158,7 +175,7 @@ export default class CityDataTable extends Component {
                     bordered
                     hover
                     data={this.state.data} />
-                <CityPopup
+                <NeighbourhoodPopup
                     setShow={this.state.show}
                     showPopupFunction={this.handleHiddenPopup.bind(this)}
                     department_name={this.state.data.department_name}

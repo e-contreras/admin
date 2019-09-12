@@ -31,6 +31,7 @@ import Pedidos from './components/layout/Content/Ventas/Pedido';
 import ApproveRequest from './components/layout/Content/Ventas/Pedido/Approve';
 import SaleBook from './components/layout/Content/Ventas/SaleBook';
 import Login from './components/Login';
+import Neighbourhood from './components/layout/Content/Maintainace/General/Neighbourhood';
 
 const AppRoutes = () => (
   <App>
@@ -67,7 +68,7 @@ const AppRoutes = () => (
         <Route path="/log-undeliberd" exact component={Undelibered}  />
         <Route path="/general/departaments" exact component={Departament}  />
         <Route path="/general/cities" exact component={City}  />
-
+        <Route path="/general/neighbourhoods" exact component={Neighbourhood}  />
     </Switch>
   </App>
 );

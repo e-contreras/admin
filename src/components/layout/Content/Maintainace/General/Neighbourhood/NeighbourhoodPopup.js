@@ -14,9 +14,7 @@ import { baseURLServer } from '../../../../../../core/opcionesApp'
 
 const initialState = {
     id: undefined,
-    city_name: undefined,
     department_name: undefined,
-    department_id: undefined,
     creation_date: undefined,
     modification_date: undefined,
     showPopup: false,
@@ -50,14 +48,14 @@ export default class CityPopup extends Component {
                                 </Col>
                             </FormGroup>
 
-                            <FormGroup controlId="ciudad">
+                            <FormGroup controlId="departamento">
                                 <Col className="form-group has-feedback">
                                     <FormControl
                                         name="departmentName"
                                         className="form-control"
                                         type="text"
-                                        placeholder="Ciudad"
-                                        value={this.state.city_name}
+                                        placeholder="Departamento"
+                                        value={this.state.department_name}
                                         onChange={this.changeName.bind(this)} />
                                     {this.state.departmentError ? (
                                         <div style={{ fontSize: 12, color: 'red' }}>
@@ -69,9 +67,7 @@ export default class CityPopup extends Component {
 
                             <FormGroup controlId="exampleForm.ControlSelect1">
                                 <label>Departamento</label>
-                                <Select 
-                                    value={this.state.department_id}
-                                    options={this.props.departmentSelect} />
+                                <Select options={this.props.departmentSelect} />
                             </FormGroup>
                             <FormGroup className="row">
                                 <div className="col-xs-12">
