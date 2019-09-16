@@ -69,7 +69,7 @@ export default class CityPopup extends Component {
 
                             <FormGroup controlId="exampleForm.ControlSelect1">
                                 <label>Departamento</label>
-                                <Select 
+                                <Select
                                     value={this.state.department_id}
                                     options={this.props.departmentSelect} />
                             </FormGroup>
@@ -130,6 +130,10 @@ export default class CityPopup extends Component {
         this.setState({
             department_name: e.target.value
         });
+    }
+
+    chandgeDepartament(e) {
+
     }
 
     validate = () => {
