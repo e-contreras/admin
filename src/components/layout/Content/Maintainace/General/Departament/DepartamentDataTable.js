@@ -1,23 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { MDBDataTable } from 'mdbreact';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import DepartamentPopup from './DepartamentPopup';
-import {baseURLServer} from '../../../../../../core/opcionesApp';
+import { baseURLServer } from '../../../../../../core/opcionesApp';
+import { Modal } from 'react-bootstrap';
+import {
+    Button,
+    Form,
+    FormControl,
+    FormGroup,
+    Col
+} from 'react-bootstrap';
 
 const initialState = {
     data: {
         columns: [],
-        rows: [],
-        row_selected: {
-            id: 0,
-            department_name: ''
-        }
+        rows: []
     },
     show: false,
     id: 0,
     department_name: '',
-    error_msg: []
+    departmentError: undefined,
+    messages: []
 };
 
 export default class DepartamentDataTable extends Component {
@@ -25,19 +29,94 @@ export default class DepartamentDataTable extends Component {
     constructor(props) {
         super(props);
         this.state = initialState;
-    }
-
-    callbackFunction(error_msg) {
-        this.setState({ error_msg: error_msg });
+        this.changeName = this.changeName.bind(this);
+        this.changeName = this.changeName.bind(this);
     }
 
     componentWillMount() {
         this.getData();
     }
 
+    render() {
+        return (
+            <div>
+                <div style={{ float: "right", with: '100%' }}>
+                    <Button type="button" className="btn btn-primary" onClick={this.handlerNewPopu.bind(this)}>Nuevo</Button>
+                </div>
+                <MDBDataTable
+                    striped
+                    bordered
+                    hover
+                    data={this.state.data} />
+                <div hidden={!this.state.showPopup}>
+                    <Modal show={this.state.show} onHide={this.handleHiddenPopup.bind(this)}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Departamento</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Form>
+                                <FormGroup controlId="formUsername">
+                                    <Col className="form-group has-feedback">
+                                        <FormControl
+                                            type="text"
+                                            placeholder="ID"
+                                            value={this.state.id}
+                                            onChange={this.changeId}
+                                            disabled />
+                                    </Col>
+                                </FormGroup>
+
+                                <FormGroup controlId="formPassword">
+                                    <Col className="form-group has-feedback">
+                                        <FormControl
+                                            name="departmentName"
+                                            ref="departmentName"
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Departamento"
+                                            value={this.state.department_name}
+                                            onChange={this.changeName} />
+                                        {this.state.departmentError ? (
+                                            <div style={{ fontSize: 12, color: 'red' }}>
+                                                {this.state.departmentError}
+                                            </div>
+                                        ) : null}
+                                    </Col>
+                                </FormGroup>
+
+                                <FormGroup className="row">
+                                    <div className="col-xs-12">
+                                        <div className="checkbox icheck">
+                                        </div>
+                                        <Col className="col-xs-4">
+                                            <Button
+                                                className="btn btn-primary btn-block btn-flat"
+                                                type="submit"
+                                                onClick={this.save.bind(this)}>Guardar</Button>
+                                        </Col>
+                                    </div>
+                                </FormGroup>
+                                <div>
+                                    <ul>
+                                        {
+                                            this.state.messages.map((item) =>
+                                                <li>{item}</li>
+                                            )
+                                        }
+                                    </ul>
+                                </div>
+                            </Form>
+                        </Modal.Body>
+                    </Modal>
+                </div>
+
+            </div>
+        );
+    }
+
     async getData() {
         let departaments = [];
-        await axios.get(baseURLServer+'/departments').then(resp => {
+        await axios.get(baseURLServer + '/departments').then(resp => {
             departaments = resp.data;
         }).catch(e => {
             console.log(e);
@@ -49,7 +128,7 @@ export default class DepartamentDataTable extends Component {
             let dept = {
                 'id': department.id,
                 'department_name': department.department_name,
-                'last': <Button type="button" variant="primary" id={department.id} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
+                'last': <Button type="button" variant="primary" data={JSON.stringify(department)} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
             }
             jsondata.push(dept);
         });
@@ -82,52 +161,119 @@ export default class DepartamentDataTable extends Component {
 
     handleShowPopup(event) {
         event.preventDefault();
-        let id = parseInt(event.target.id);
-        let data = this.state.data;
-        let selected_row = {};
-        data.rows.forEach((row) => {
-            if (row.id === id) {
-                selected_row = row;
-            }
-        });
-        data.row_selected = selected_row;
-        data.id = selected_row.id;
-        data.department_name = selected_row.department_name;
-        this.setState({ data: data, show: true });
+        let row_selected = JSON.parse(event.currentTarget.getAttribute('data'));
+        if(row_selected === null || row_selected === undefined){
+            this.setState({ id: undefined, department_name: undefined, show: true, messages: [], departmentError: undefined });
+        }else{
+            this.setState({ id: row_selected.id, department_name: row_selected.department_name, show: true, messages: [], departmentError: undefined});
+        }
+        this.focusToInput();
+    }
+
+    focusToInput() {
+        let node = ReactDOM.findDOMNode(this.refs.departmentName);
+        if (node && node.focus instanceof Function) {
+            node.focus();
+        }
     }
 
     handleHiddenPopup(e) {
         this.setState({ show: !this.state.show });
     }
 
-    handlerNewPopu(e){
+    handlerNewPopu(e) {
         this.handleShowPopup(e);
         this.setState({
-            department_id : undefined,
+            department_id: undefined,
             department_name: undefined
         });
     }
 
-    render() {
-        return (
-            <div>
-                <div style={{ float: "right", with: '100%' }}>
-                    <Button type="button" className="btn btn-primary" onClick={this.handlerNewPopu.bind(this)}>Nuevo</Button>
-                </div>
-                <MDBDataTable
-                    striped
-                    bordered
-                    hover
-                    data={this.state.data} />
-                <DepartamentPopup
-                    setShow={this.state.show}
-                    showPopupFunction={this.handleHiddenPopup.bind(this)}
-                    department_name={this.state.data.department_name}
-                    department_id={this.state.data.id}
-                    parentCallback={this.callbackFunction.bind(this)}
-                />
-                <div style={{ display: (this.state.error_msg.length > 0 ? 'block' : 'none') }}>errrror</div>
-            </div>
-        );
+    newPopup(show) {
+        this.setState({ showPopup: show });
+    }
+
+    hiddenPopup(e) {
+        this.props.showPopupFunction();
+        this.setState(initialState);
+    }
+
+    changeId(e) {
+        this.setState({
+            id: e.target.value
+        });
+    }
+
+    changeName(e) {
+       this.setState({department_name: e.target.value});
+    }
+
+    validate = () => {
+        let departmentError = undefined;
+        if (this.state.department_name === undefined) {
+            departmentError = "Debe escribir el nombre del departamento";
+        }
+
+        if (departmentError) {
+            this.setState({ departmentError });
+            return false;
+        }
+
+        return true;
+
+    }
+
+    save(e) {
+        e.preventDefault();
+        const isValid = this.validate();
+        if (isValid) {
+            let data = {
+                creation_date: new Date().toISOString().toString(),
+                creation_user: 'admin',
+                department_name: this.state.department_name
+            };
+
+            if (this.state.id === undefined) {
+                console.log("new");
+            } else {
+                console.log("updadte");
+                data = {
+                    id: parseInt(this.state.id),
+                    modification_date: new Date().toISOString().toString(),
+                    modification_user: 'admin',
+                    department_name: this.state.department_name
+                };
+            }
+
+            axios({
+                method: 'post',
+                url: baseURLServer + '/departments',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify(data),
+            }).then(res => {
+                console.log(res)
+            }).catch(error => {
+                console.log(error);
+                if (error.response) {
+                    if (error.response.status >= 400 && error.response.status < 500) {
+                        this.setState(error.response.data);
+                    } else if (error.response.status > 500) {
+                        this.setState({ messages: ['Nde!!! Ocurrió un tema en el servidor'] });
+                    }
+                }
+            });
+
+            this.setState({
+                initialState
+            });
+
+        } else {
+            this.setState({
+                initialState
+            });
+            return;
+        }
     }
 }
