@@ -41,14 +41,14 @@ export default class DepartamentDataTable extends Component {
         return (
             <div>
                 <div style={{ float: "right", with: '100%' }}>
-                    <Button type="button" className="btn btn-primary" onClick={this.handlerNewPopu.bind(this)}>Nuevo</Button>
+                    <Button type="button" style={{color: 'white'}} variant="primary" className="btn btn-primary" onClick={this.handlerNewPopu.bind(this)}><i className="fa fa-plus"></i> Nuevo</Button>
                 </div>
                 <MDBDataTable
                     striped
                     bordered
                     hover
                     data={this.state.data} />
-                <div hidden={!this.state.showPopup}>
+                <div hidden={!this.state.show}>
                     <Modal show={this.state.show} onHide={this.handleHiddenPopup.bind(this)}>
                         <Modal.Header closeButton>
                             <Modal.Title>Departamento</Modal.Title>
@@ -71,6 +71,7 @@ export default class DepartamentDataTable extends Component {
                                         <FormControl
                                             name="departmentName"
                                             ref="departmentName"
+                                            autoFocus={true}
                                             className="form-control"
                                             type="text"
                                             placeholder="Departamento"
@@ -86,13 +87,12 @@ export default class DepartamentDataTable extends Component {
 
                                 <FormGroup className="row">
                                     <div className="col-xs-12">
-                                        <div className="checkbox icheck">
-                                        </div>
-                                        <Col className="col-xs-4">
+                                        <Col className="col-xs-12">
                                             <Button
-                                                className="btn btn-primary btn-block btn-flat"
+                                                style={{float: 'right', color: 'white'}}
+                                                className="btn btn-primary"
                                                 type="submit"
-                                                onClick={this.save.bind(this)}>Guardar</Button>
+                                                onClick={this.save.bind(this)}><i className="fa fa-save"></i> Guardar</Button>
                                         </Col>
                                     </div>
                                 </FormGroup>
@@ -128,7 +128,7 @@ export default class DepartamentDataTable extends Component {
             let dept = {
                 'id': department.id,
                 'department_name': department.department_name,
-                'last': <Button type="button" variant="primary" data={JSON.stringify(department)} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
+                'last': <Button type="button" style={{color: 'white'}} variant="primary"  className="btn btn-primary" data={JSON.stringify(department)} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
             }
             jsondata.push(dept);
         });
@@ -162,10 +162,10 @@ export default class DepartamentDataTable extends Component {
     handleShowPopup(event) {
         event.preventDefault();
         let row_selected = JSON.parse(event.currentTarget.getAttribute('data'));
-        if(row_selected === null || row_selected === undefined){
+        if (row_selected === null || row_selected === undefined) {
             this.setState({ id: undefined, department_name: undefined, show: true, messages: [], departmentError: undefined });
-        }else{
-            this.setState({ id: row_selected.id, department_name: row_selected.department_name, show: true, messages: [], departmentError: undefined});
+        } else {
+            this.setState({ id: row_selected.id, department_name: row_selected.department_name, show: true, messages: [], departmentError: undefined });
         }
         this.focusToInput();
     }
@@ -194,7 +194,6 @@ export default class DepartamentDataTable extends Component {
     }
 
     hiddenPopup(e) {
-        this.props.showPopupFunction();
         this.setState(initialState);
     }
 
@@ -205,7 +204,7 @@ export default class DepartamentDataTable extends Component {
     }
 
     changeName(e) {
-       this.setState({department_name: e.target.value});
+        this.setState({ department_name: e.target.value });
     }
 
     validate = () => {
@@ -225,18 +224,14 @@ export default class DepartamentDataTable extends Component {
 
     save(e) {
         e.preventDefault();
-        const isValid = this.validate();
-        if (isValid) {
+        if (this.validate()) {
             let data = {
                 creation_date: new Date().toISOString().toString(),
                 creation_user: 'admin',
                 department_name: this.state.department_name
             };
 
-            if (this.state.id === undefined) {
-                console.log("new");
-            } else {
-                console.log("updadte");
+            if (this.state.id !== undefined) {
                 data = {
                     id: parseInt(this.state.id),
                     modification_date: new Date().toISOString().toString(),
@@ -253,9 +248,8 @@ export default class DepartamentDataTable extends Component {
                 },
                 data: JSON.stringify(data),
             }).then(res => {
-                console.log(res)
+                this.setState({initialState});
             }).catch(error => {
-                console.log(error);
                 if (error.response) {
                     if (error.response.status >= 400 && error.response.status < 500) {
                         this.setState(error.response.data);
@@ -264,16 +258,8 @@ export default class DepartamentDataTable extends Component {
                     }
                 }
             });
-
-            this.setState({
-                initialState
-            });
-
         } else {
-            this.setState({
-                initialState
-            });
-            return;
+            this.setState({initialState});
         }
     }
 }

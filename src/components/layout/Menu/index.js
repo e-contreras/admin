@@ -174,7 +174,7 @@ export default class Menu extends Component {
                 </a>
                 <ul className="treeview-menu">
                   {menuItms.compras.map(menuItem =>
-                    <li className={this.state.activeMenu.id === menuItem.id ? 'active': 'activo'}>
+                    <li className={this.state.activeMenu.id === menuItem.id ? 'active': 'activo'} key={ menuItem.id}>
                       <Link to={menuItem.url} id={menuItem.id} onClick={this.changeLink.bind(this, menuItem)}>
                         <i className="fa fa-circle-o" /> {menuItem.name}
                       </Link>
@@ -191,7 +191,7 @@ export default class Menu extends Component {
                 </a>
                 <ul className="treeview-menu">
                   {menuItms.ventas.map(menuItem =>
-                    <li className={this.state.activeMenu === menuItem ? 'active': ''}>
+                    <li className={this.state.activeMenu === menuItem ? 'active': ''} key={menuItem.id}>
                       <Link to={menuItem.url} id={menuItem.id} onClick={this.changeLink.bind(this, menuItem)}>
                         <i className="fa fa-circle-o" /> {menuItem.name} 
                       </Link>
@@ -208,7 +208,7 @@ export default class Menu extends Component {
                 </a>
                 <ul className="treeview-menu">
                   {menuItms.logistica.map(menuItem =>
-                    <li className={this.state.activeMenu === menuItem ? 'active': ''}>
+                    <li className={this.state.activeMenu === menuItem ? 'active': ''} key={menuItem.id}>
                       <Link to={menuItem.url} id={menuItem.id} onClick={this.changeLink.bind(this, menuItem)}>
                         <i className="fa fa-circle-o" /> {menuItem.name}
                       </Link>
@@ -225,7 +225,7 @@ export default class Menu extends Component {
                 </a>
                 <ul className="treeview-menu">
                   {menuItms.seguridad.map(menuItem =>
-                    <li id={menuItem.id} className={this.state.activeMenu === menuItem ? 'active': ''}>
+                    <li id={menuItem.id} className={this.state.activeMenu === menuItem ? 'active': ''} key={menuItem.id}> 
                       <Link to={menuItem.url} id={menuItem.id} onClick={this.changeLink.bind(this, menuItem)}>
                         <i className="fa fa-circle-o" /> {menuItem.name}
                       </Link>
@@ -245,7 +245,7 @@ export default class Menu extends Component {
                     <i className="fa fa-circle-o" />General</a>
                     <ul>
                       {menuItms.mantenimiento.general.map(menuItem =>
-                        <li style={this.state.activeMenu === menuItem ? {color:'white'}: {}}>
+                        <li style={this.state.activeMenu === menuItem ? {color:'white'}: {}} key={menuItem.id}>
                           <Link to={menuItem.url} id={menuItem.id} onClick={this.changeMantenimiento.bind(this, menuItem)} style={this.state.activeMenu === menuItem ? {color:'white'}: {}}>
                             {menuItem.name}
                           </Link>
