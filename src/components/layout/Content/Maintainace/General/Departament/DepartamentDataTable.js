@@ -248,6 +248,8 @@ export default class DepartamentDataTable extends Component {
                 },
                 data: JSON.stringify(data),
             }).then(res => {
+                this.getData();
+                this.handleHiddenPopup();
                 this.setState({initialState});
             }).catch(error => {
                 if (error.response) {

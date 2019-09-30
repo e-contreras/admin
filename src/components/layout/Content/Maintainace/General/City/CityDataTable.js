@@ -323,6 +323,8 @@ export default class CityDataTable extends Component {
                 },
                 data: JSON.stringify(data),
             }).then(res => {
+                this.getData();
+                this.handleHiddenPopup();
                 this.setState({ initialState });
             }).catch(error => {
                 console.log(error);
