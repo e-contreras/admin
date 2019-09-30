@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ProductDatatable from './ProductDatatable';
 
 export default class Mercaderia extends Component {
 
@@ -27,6 +27,7 @@ export default class Mercaderia extends Component {
                                                     <i className="fa fa-plus"></i> Nuevo</button>
                                         </div>
                                     </div>
+                                    <ProductDatatable />
                                     {/* /.box-header */}
                                     <div className="box-body">
                                         <table id="example1" className="table table-bordered table-striped">
