@@ -1,16 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { MDBDataTable } from 'mdbreact';
 import axios from 'axios';
+import { MDBDataTable } from 'mdbreact';
+import React, { Component } from 'react';
+import { Button, Col, Form, FormControl, FormGroup, Modal } from 'react-bootstrap';
+import ReactDOM from 'react-dom';
 import { baseURLServer } from '../../../../../core/opcionesApp';
-import { Modal } from 'react-bootstrap';
-import {
-    Button,
-    Form,
-    FormControl,
-    FormGroup,
-    Col
-} from 'react-bootstrap';
 
 const productModel ={
     id: undefined,
