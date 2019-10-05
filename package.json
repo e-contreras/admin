@@ -19,6 +19,7 @@
     "react-datepicker": "^2.8.0",
     "react-dates": "^20.2.5",
     "react-dom": "^16.8.6",
+    "react-images-upload": "^1.2.7",
     "react-notify-toast": "^0.5.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
