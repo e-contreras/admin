@@ -20,10 +20,12 @@ const initialState = {
     },
     show: false,
     id: undefined,
+    code: undefined,
+    bar_code: undefined,
     product_name: undefined,
-    product_category: undefined,
-    product_brand: undefined,
-    product_article: undefined,
+    descripcion: undefined,
+    category: undefined,
+    brand: undefined,
     departmentError: undefined,
     messages: []
 };
@@ -44,9 +46,6 @@ export default class DepartamentDataTable extends Component {
     render() {
         return (
             <div>
-                <div style={{ float: "right", with: '100%' }}>
-                    <Button type="button" style={{color: 'white'}} variant="primary" className="btn btn-primary" onClick={this.handlerNewPopu.bind(this)}><i className="fa fa-plus"></i> Nuevo</Button>
-                </div>
                 <MDBDataTable
                     striped
                     bordered
@@ -130,8 +129,10 @@ export default class DepartamentDataTable extends Component {
         let jsondata = [];
         products.forEach(product => {
             let dept = {
-                'id': product.code,
-                'department_name': product.product_name,
+                code: product.code,
+                product_name: product.product_name,
+                category: product.category,
+                brand: product.brand,
                 'last': <Button type="button" style={{color: 'white'}} variant="primary"  className="btn btn-primary" data={JSON.stringify(product)} onClick={this.handleShowPopup.bind(this)}><i className="fa fa-edit"></i></Button>
             }
             jsondata.push(dept);
@@ -158,12 +159,6 @@ export default class DepartamentDataTable extends Component {
             {
                 label: 'Marca',
                 field: 'marca',
-                sort: 'asc',
-                width: 500
-            },
-            {
-                label: 'Articulo',
-                field: 'articulo',
                 sort: 'asc',
                 width: 500
             },
